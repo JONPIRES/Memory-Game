@@ -61,22 +61,29 @@ width: 100%;
   position: relative;
   height:150px;  
   width:130px ;
-  /* background-color: rgb(226, 233, 242); */
-   background-color: rgb(0, 0, 0);
    border-radius: 5px;
-   border: 1px solid gold;
+   transform-style: preserve-3d;
+   transition: all 0.5s ease;
+}
+.card:hover{
+    transform: rotateY(180deg);
 }
 
 .front{
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
     border-radius: 5px;
-
-
-    
+   border: 1px solid gold; 
+   background-color: rgb(255, 255, 255);
 }
-.back{
-    display: none;
-    position: absolute;
+.back{ 
+   position: absolute; 
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: 1px solid gold; 
+   backface-visibility: hidden;
+   background-color: rgb(0, 0, 0);
+
 }
