@@ -1,6 +1,11 @@
 const deck = document.querySelectorAll(".card");
 
-
+(function shuffle(){
+    deck.forEach(card => {
+        let randomNum = Math.floor(Math.random() *16);
+        card.style.order = randomNum;
+    })
+    })()
 
 
 let matched = [];
