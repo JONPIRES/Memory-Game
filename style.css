@@ -13,16 +13,34 @@ h1{
 }
 .left-side{
    margin: 15px;
-   /* border: 1px solid gold; */
 }
-.character{
 
-background-color: antiquewhite;
-
+.controls button{
+    
+        background-color: #04AA6D;
+        border: 1px solid green;
+        color: white;
+        padding: 10px 24px;
+        cursor: pointer; 
+        width: 50%; 
+        display: block; 
+        justify-content: center;
+        margin: auto;
+      }
+.sound{
+    position: relative;
+    top: 45vh;
 }
+.reset{
+    position: relative;
+    top: 40vh;
+}
+    
+
+
+
 .header{
     margin: 0%;
-/* background-color: rgb(0, 0, 0); */
 justify-content: center;
 align-items: center;
 display: flex;
@@ -38,12 +56,8 @@ width: 100%;
 }
 
 .main{
-       /* display: flex;
-   justify-content: space-around;
    flex-wrap: wrap; */
    margin: 15px;
-   /* border: 3px solid rgb(196, 66, 66); */
-   /* background-color: rgb(0, 0, 0); */
    height: 80vh;
    width: 100%;
    display: grid;
@@ -64,11 +78,6 @@ width: 100%;
    border-radius: 5px;
    transform-style: preserve-3d;
    transition: all 0.3s ease;
-    /* transform: rotateY(180deg); */
-
-}
-.card:hover{
-    /* transform: rotateY(180deg); */
 }
 
 .front{

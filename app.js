@@ -42,12 +42,10 @@ const vaderMatch = new Audio("sounds/vader_yes.mp3");
                 matched[i].style.transform = "rotateY(180deg)";
             }
         }, 2000)
-        matched[15].style.transform = "rotateY(180deg)"
-        matched[14].style.transform = "rotateY(180deg)"
     }
 
     function resetGame(){
-
+        
     }
 
 // Game Logic
