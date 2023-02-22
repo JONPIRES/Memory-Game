@@ -1,5 +1,11 @@
 const deck = document.querySelectorAll(".card");
 
+// Audio effects
+var breathing = new Audio("sounds/vader_breathing.mp3");
+var cardClick = new Audio("sounds/lightsaber.mp3");
+
+breathing.play;
+
 (function shuffle(){
     deck.forEach(card => {
         let randomNum = Math.floor(Math.random() *16);
@@ -26,7 +32,7 @@ for (let i = 0; i < deck.length; i++) {
                         matched[matched.length - 2].style.transform = "rotateY(0deg)";
                         matched.pop()
                         matched.pop()
-                      }, "500")
+                      }, "1000")
                     }
     
             }
