@@ -8,4 +8,3 @@ Project-one-0206-SEIR
 -   Once I'm able to flip all the cards I want the timmer to stop 
 -   I made it so you can't click on the same card twice
 -   this is a branch test
-- reset button
