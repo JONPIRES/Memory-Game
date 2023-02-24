@@ -3,6 +3,7 @@ const body = document.querySelector("body");
 const attemptsMsg = document.querySelector(".attempts");
 const resetBtn = document.querySelector(".reset");
 const soundBtn = document.querySelector(".sound");
+const timer = document.querySelector(".timer");
 
 // Audio files
 const breathing = new Audio("sounds/vader_breathing.mp3");
@@ -21,7 +22,12 @@ let matched = [];
 
 function updateAttempt(){
     attempts += 1
-    attemptsMsg.innerHTML = `${attempts} Attempts`
+    if(attempts === 1){
+        attemptsMsg.innerHTML = `${attempts} Attempt`
+    }
+    else if(attempts > 1){
+        attemptsMsg.innerHTML = `${attempts} Attempts`
+    }
 }
 
 function shuffle(){
@@ -33,7 +39,6 @@ function shuffle(){
     shuffle();
     
     function spinMatched(){
-        attemptsMsg.innerHTML = `${attemptNumber} Attempts`
         setTimeout(() => {
             matched[matched.length - 1].style.transform = "rotateY(990deg)";
             matched[matched.length - 2].style.transform = "rotateY(990deg)";
@@ -105,29 +110,32 @@ function shuffle(){
 
 // Timer function
 
-let seconds = 0
-let minutes = 0
-let hours = 0
+let seconds =0;
+let minutes =0;
+let hours =0;
 
-function timer(){
+function clock(){
     setInterval(()=>{
-        if(seconds >= 0 && seconds < 60){
-            seconds += 1;
+        if(matched.length === 1){
+            
+            if(seconds >= "0" && seconds < "60"){
+                seconds += 1;
+            }
+            else if (seconds === "60" && minutes <"60"){
+            seconds = 0;
+            minutes += 1;
+            }
+            else if(minutes === "60" && hours < "24"){
+                seconds = 0;
+                minutes = 0;
+                hours += 1;
+            }
+            timer.innerHTML = `${hours}:${minutes}:${seconds}`
         }
-        else if (seconds === 60 && minutes <60){
-        seconds = 0
-        minutes += 1
-        }
-        else if(minutes === 60 && hours < 24){
-            seconds = 0
-            minutes = 0
-            hours += 1
-        }
-        
         },1000)
-   
+         
 }
-// timer();
+
 
 // Game Logic
 
@@ -137,6 +145,7 @@ for (let i = 0; i < deck.length; i++) {
         if(soundBtn.value === "ON"){
             introMusic()
             }
+            clock();
         if(!matched.includes(deck[i])){
             deck[i].style.transform = "rotateY(180deg)";
             matched.push(deck[i])
