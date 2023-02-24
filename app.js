@@ -4,6 +4,12 @@ const attemptsMsg = document.querySelector(".attempts");
 const resetBtn = document.querySelector(".reset");
 const soundBtn = document.querySelector(".sound");
 const timer = document.querySelector(".timer");
+// const sec = document.querySelector(".seconds")
+// const min = document.querySelector(".minutes")
+// const hr = document.querySelector(".hours")
+// seconds = sec.innerHTML
+// minutes = min.innerHTML
+// hours = 
 
 // Audio files
 const breathing = new Audio("sounds/vader_breathing.mp3");
@@ -15,19 +21,21 @@ const allSound = [cardClick,introSound, yodaLaugh,vaderMatch];
 
 let attempts = 0;
 let matched = [];
+let time = []
 
 
 
 // functions
 
 function updateAttempt(){
-    attempts += 1
-    if(attempts === 1){
+    attempts ++
+     if(attempts <= 1){
         attemptsMsg.innerHTML = `${attempts} Attempt`
     }
     else if(attempts > 1){
         attemptsMsg.innerHTML = `${attempts} Attempts`
     }
+    
 }
 
 function shuffle(){
@@ -63,6 +71,7 @@ function shuffle(){
     }
 
     function resetBoard(){
+        time = []
         setTimeout(() =>{
             for (let i = 0; i < matched.length; i++) {
                 matched[i].style.transform = "rotateY(180deg)";
@@ -72,10 +81,14 @@ function shuffle(){
             for (let i = 0; i < deck.length; i++) {
                 deck[i].style.transform = "rotateY(0)";
                 shuffle()
-            matched = []
-            attempts = []
+                matched = []
+                attempts = 0
             }
         }, 3000)
+        
+        seconds =0;
+        minutes =0;
+        hours =0;
        
     }
 
@@ -109,32 +122,30 @@ function shuffle(){
     // });
 
 // Timer function
-
 let seconds =0;
 let minutes =0;
 let hours =0;
-
-function clock(){
+(function clock(){
+    
     setInterval(()=>{
-        if(matched.length === 1){
-            
-            if(seconds >= "0" && seconds < "60"){
-                seconds += 1;
+            if(time.length == 0){
+            timer.innerHTML = `${hours}:${minutes}:${seconds}`
             }
-            else if (seconds === "60" && minutes <"60"){
-            seconds = 0;
-            minutes += 1;
-            }
-            else if(minutes === "60" && hours < "24"){
+            if(time.length >= 1){
+                seconds++
+                if (seconds === 60){
+                minutes += 1;
+                seconds = 0
+                }if(minutes === 60){
+                hours += 1;
                 seconds = 0;
                 minutes = 0;
-                hours += 1;
-            }
-            timer.innerHTML = `${hours}:${minutes}:${seconds}`
+                }
+                timer.innerHTML = `${hours}:${minutes}:${seconds}`
         }
-        },1000)
-         
-}
+        },1000)     
+})()
+
 
 
 // Game Logic
@@ -142,10 +153,8 @@ function clock(){
 
 for (let i = 0; i < deck.length; i++) {
     deck[i].addEventListener('click', function(){
-        if(soundBtn.value === "ON"){
-            introMusic()
-            }
-            clock();
+        if(soundBtn.value === "ON") introMusic()
+            time.push("1")
         if(!matched.includes(deck[i])){
             deck[i].style.transform = "rotateY(180deg)";
             matched.push(deck[i])
