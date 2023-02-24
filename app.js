@@ -113,7 +113,8 @@ function shuffle(){
        }
     });
 
-    // Reset buton \/
+
+    // Reset buton
 
     // resetBtn.addEventListener("click", function (){
     //    if(resetBtn.value === "ON"){
