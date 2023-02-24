@@ -39,7 +39,7 @@ function shuffle(){
     }
 
     function noMatchSound(){
-            yodaLaugh.volume = 0.25
+            yodaLaugh.volume = 0.05
             yodaLaugh.play();
     }
 
@@ -63,20 +63,23 @@ function shuffle(){
         }, 3000)
        
     }
-    // function resetBoard(){
-      
+ 
+    soundBtn.addEventListener("click", function (){
+       if(soundBtn.value === "ON"){
+        console.log("btn is on")
+        soundBtn.innerHTML = "Sound OFF"
+        allSound.forEach(function(sound){
+            sound.volume = 0
+        })
+       }
+    });
 
-        
-    // }
 
-   
-    // soundBtn.addEventListener("click", function (){
-    //     allSound.forEach(sound, () =>{
-    //         sound.muted = true
-    //         sound.pause();
-    //         console.log("working")
-    //     })
-    // });
+    soundBtn.addEventListener("click", function (){
+       if(soundBtn.value === "ON"){
+        console.log("btn is on")
+       }
+    });
 
 
 // Game Logic
