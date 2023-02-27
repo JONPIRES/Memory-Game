@@ -3,10 +3,15 @@ Project-one-0206-SEIR
 
 - Star wars Memory
 -   As the user I want to be able to click on a card and have it flip up
+-   As a user I would like for the cards to make different sounds when there is a match or no match.
+-   As a user I want the theme song of Star Wars to paly when the player clicks on the first card.
 -   After two cards have flipped up. I want to be able to compare them
 -   If the two flipped cards do not match, I want them to flip back down.
--   Once I'm able to flip all the cards I want the timmer to stop 
+-   If the cards match, I want them to spin and dissapear
+-   Once I'm able to flip all the cards I want the board to reset, and before shuffling all the cards I want them to show up on the board again facing up.
 -   I made it so you can't click on the same card twice
+-   I made buttons that allow you to reset the board and all it's features; and another button that allows you to play with no sound.
+
 
 Game Description - Memory Game
 This is a Memory Game. the objective of the game is to be able to match all card pairs on the board. I added a timer feature, and when the player clicks on the first card, the timer will start, and in that way the player will know how long it took to finish the game. I made it so, when a player is able to match a card, the cards will spin and then disappear out of the board. If the player is not able to match the cards, then the cards flip back down. For every attempt, that a player makes, the Attempts message gets updated with the number of attempt the player has had so far.
@@ -25,19 +30,20 @@ This is the inicial display of the game with all the cars facing down and the th
 
 
 
-this is how the cards are displayed on teh board.
+this is how the cards are displayed on the board.
 
 
-
+![homepage](./Readme%20imgs/card-up.png)
 
 
 this is when the cards are out of the board
 
-
+![homepage](./Readme%20imgs/card-out.png)
 
 
 this is the end when all the cards are displayed back at the bard.
 
+![homepage](./Readme%20imgs/end.png)
 
 Technologies Used
 
@@ -53,7 +59,7 @@ I used conditional statement to determine if the cards flipped were a match.
 
 Challenging Code Parts
 
- making is so the card could bot be clicked again if it was turned or if it was a match
+ making is so the card could bot be clicked again if it was turned or if it was a match. I had to wrap the whole logic  in an if statement that only allowed cards that weren't in the matched array to be clicked. 
 
 making a timer from scratch I was using strict equals when I should be using double equals.
 
