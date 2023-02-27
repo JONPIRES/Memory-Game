@@ -116,11 +116,9 @@ function shuffle(){
 
     // Reset buton
 
-    // resetBtn.addEventListener("click", function (){
-    //    if(resetBtn.value === "ON"){
-    //     console.log("btn is on")
-    //    }
-    // });
+    resetBtn.addEventListener("click", function (){
+       resetBoard()
+    });
 
 // Timer function
 let seconds =0;
@@ -130,7 +128,7 @@ let hours =0;
     
     setInterval(()=>{
             if(time.length == 0){
-            timer.innerHTML = `${hours}:${minutes}:${seconds}`
+            timer.innerHTML = `0${hours}:0${minutes}:0${seconds}`
             }
             if(time.length >= 1){
                 seconds++
@@ -142,7 +140,7 @@ let hours =0;
                 seconds = 0;
                 minutes = 0;
                 }
-                timer.innerHTML = `${hours}:${minutes}:${seconds}`
+                timer.innerHTML = `0${hours}:0${minutes}:${seconds}`
         }
         },1000)     
 })()
